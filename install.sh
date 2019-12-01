@@ -154,9 +154,6 @@ fi
 
 
 
-sed -i '2c SS5_OPTS="-u root -b 0.0.0.0:' $portFile
-sed -i "/0.0.0:/ s/$/$port\"/" $portFile
-
 
 
 
