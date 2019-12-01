@@ -144,7 +144,8 @@ else
 echo "/ss5/ is OK!"
 fi
 }
-
+sed -i '2c SS5_OPTS="-u root -b 0.0.0.0:' $portFile
+sed -i "/0.0.0:/ s/$/51201\"/" $portFile
 #5.检测是否安装完整
 check(){
 cd /root
