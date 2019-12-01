@@ -1,4 +1,11 @@
 #!/bin/sh
+#!/bin/bash
+#Set PATH
+userfile=/etc/opt/ss5/user.sh
+passwdFile=/etc/opt/ss5/ss5.passwd
+confFile=/etc/opt/ss5/ss5.conf
+portFile=/etc/sysconfig/ss5
+port=51201
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 #Check OS
@@ -144,8 +151,18 @@ else
 echo "/ss5/ is OK!"
 fi
 }
-sed -i '2c SS5_OPTS="-u root -b 0.0.0.0:' /etc/sysconfig/ss5
-sed -i "/0.0.0:/ s/$/51201\"/" /etc/sysconfig/ss5
+
+then
+clear
+sed -i '2c SS5_OPTS="-u root -b 0.0.0.0:' $portFile
+sed -i "/0.0.0:/ s/$/$port\"/" $portFile
+echo ""
+var=`service ss5 restart`
+ fi
+
+
+
+
 #5.检测是否安装完整
 check(){
 cd /root
