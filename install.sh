@@ -171,12 +171,10 @@ if  [ ! -f "/etc/opt/ss5/ss5.conf" ]; then
 	errorMsg=${errorMsg}"004|"
 	isError=true	
 fi
-fi
 then
 clear
 sed -i '2c SS5_OPTS="-u 51201 -b 0.0.0.0:' $portFile
 sed -i "/0.0.0:/ s/$/$port\"/" $portFile
-fi
 
 if [ "$isError" = "true" ] ; then
 unInstall
