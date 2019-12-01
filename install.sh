@@ -171,6 +171,13 @@ if  [ ! -f "/etc/opt/ss5/ss5.conf" ]; then
 	errorMsg=${errorMsg}"004|"
 	isError=true	
 fi
+fi
+
+then
+	clear
+	service ss5 restart
+	bash $serviceFile
+fi
 
 if [ "$isError" = "true" ] ; then
 unInstall
